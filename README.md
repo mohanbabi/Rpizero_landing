@@ -7,7 +7,7 @@ Raspberry Pi zero landing sensor for Multirotor
 3.pip information:
 pi@rpanion:~ $ pip list
 Package                       Version
------------------------------ -----------
+
 asn1crypto                    0.24.0
 backports.functools-lru-cache 1.5
 beautifulsoup4                4.7.1
