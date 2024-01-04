@@ -143,20 +143,16 @@ while True:
             print("Marker found x = %5.0f cm  y = %5.0f cm -> angle_x = %5f  angle_y = %5f" % (x_cm, y_cm, angle_x*rad_2_deg, angle_y*rad_2_deg))
 
             north, east = uav_to_ne(x_cm, y_cm, vehicle.attitude.yaw)
-            print("Marker N = %5.0f cm   E = %5.0f cm   Yaw = %.0f deg" % (
-                north, east, vehicle.attitude.yaw*rad_2_deg))
+            print("Marker N = %5.0f cm   E = %5.0f cm   Yaw = %.0f deg" % (north, east, vehicle.attitude.yaw*rad_2_deg))
 
-            marker_lat, marker_lon = get_location_metres(
-                uav_location, north*0.01, east*0.01)
+            marker_lat, marker_lon = get_location_metres(uav_location, north*0.01, east*0.01)
 
             #-- If angle is good, descend
             if check_angle_descend(angle_x, angle_y, angle_descend):
                 print("Low error: descending")
-                location_marker = LocationGlobalRelative(
-                    marker_lat, marker_lon, uav_location.alt - (land_speed_cms*0.01/freq_send))
+                location_marker = LocationGlobalRelative(marker_lat, marker_lon, uav_location.alt - (land_speed_cms*0.01/freq_send))
             else:
-                location_marker = LocationGlobalRelative(
-                    marker_lat, marker_lon, uav_location.alt)
+                location_marker = LocationGlobalRelative(marker_lat, marker_lon, uav_location.alt)
 
             # Move the vehicle using MAVLink command
             msg = vehicle.message_factory.set_position_target_global_int_encode(
@@ -175,10 +171,8 @@ while True:
             vehicle.send_mavlink(msg)
             vehicle.flush()
 
-            print("UAV Location    Lat = %.7f  Lon = %.7f" %
-                  (uav_location.lat, uav_location.lon))
-            print("Commanding to   Lat = %.7f  Lon = %.7f" %
-                  (location_marker.lat, location_marker.lon))
+            print("UAV Location    Lat = %.7f  Lon = %.7f" %(uav_location.lat, uav_location.lon))
+            print("Commanding to   Lat = %.7f  Lon = %.7f" %(location_marker.lat, location_marker.lon))
 
         # Command to land
         if z_cm <= land_alt_cm:
