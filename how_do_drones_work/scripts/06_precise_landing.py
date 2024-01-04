@@ -159,6 +159,7 @@ while True:
                 location_marker         = LocationGlobalRelative(marker_lat, marker_lon, uav_location.alt)
                 
             vehicle.simple_goto(location_marker)
+            vehicle.flush()
             print ("UAV Location    Lat = %.7f  Lon = %.7f"%(uav_location.lat, uav_location.lon))
             print ("Commanding to   Lat = %.7f  Lon = %.7f"%(location_marker.lat, location_marker.lon))
             
