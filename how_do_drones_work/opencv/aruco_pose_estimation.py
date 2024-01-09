@@ -81,7 +81,7 @@ def rotationMatrixToEulerAngles(R):
 
 
 #--- Get the camera calibration path
-calib_path  = ""
+calib_path  = "/home/pi/how_do_drones_work/opencv/"
 camera_matrix   = np.loadtxt(calib_path+'cameraMatrix_webcam.txt', delimiter=',')
 camera_distortion   = np.loadtxt(calib_path+'cameraDistortion_webcam.txt', delimiter=',')
 
