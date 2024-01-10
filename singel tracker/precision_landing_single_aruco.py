@@ -26,7 +26,7 @@ cap = WebcamVideoStream(src=0, width=horizontal_res, height=vertical_res).start(
 horizontal_fov = 62.2 * (math.pi / 180)
 vertical_fov = 48.8 * (math.pi / 180)
 
-calib_path = "/home/pi/video2calibration/calibrationFiles/"
+calib_path = "/home/pi/how_do_drones_work/opencv/"
 cameraMatrix = np.loadtxt(calib_path + 'cameraMatrix.txt', delimiter=',')
 cameraDistortion = np.loadtxt(calib_path + 'cameraDistortion.txt', delimiter=',')
 
