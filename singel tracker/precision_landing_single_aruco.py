@@ -11,7 +11,7 @@ import imutils
 
 # ArUco Marker Parameters
 id_to_find = 72
-marker_size = 10  # cm
+marker_size = 19  # cm
 takeoff_height = 8
 velocity = 0.5
 
@@ -26,7 +26,7 @@ cap = WebcamVideoStream(src=0, width=horizontal_res, height=vertical_res).start(
 horizontal_fov = 62.2 * (math.pi / 180)
 vertical_fov = 48.8 * (math.pi / 180)
 
-calib_path = "/home/pi/how_do_drones_work/opencv/"
+calib_path = "/home/pi/video2calibration/calibrationFiles/"
 cameraMatrix = np.loadtxt(calib_path + 'cameraMatrix.txt', delimiter=',')
 cameraDistortion = np.loadtxt(calib_path + 'cameraDistortion.txt', delimiter=',')
 
