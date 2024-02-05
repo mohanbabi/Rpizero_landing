@@ -77,7 +77,7 @@ def send_landing(x,y,z):
     msg = vehicle.message_factory.landing_target_encode(
         0,  # time since system boot, not used
         0,  # target num, not used
-        mavutil.mavlink.MAV_FRAME_BODY_NED,  # frame, not used
+        mavutil.mavlink.MAV_FRAME_BODY_FRD,  # frame, not used
         x,  # convert angle to 1e-4 radians
         y,  # convert angle to 1e-4 radians
         z,  # convert distance to 1e-2 centimeters
